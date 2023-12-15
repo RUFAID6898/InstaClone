@@ -5,17 +5,11 @@ import 'package:instaclone/home/followers_account_page.dart';
 import 'package:instaclone/home/widgets/post_save_widget.dart';
 import 'package:instaclone/home_api/intagration_api.dart';
 import 'package:instaclone/home_api/repo_api.dart';
-// import 'package:instagram/core/short._widget.dart';
-// import 'package:instagram/home/followers_account_page.dart';
-// import 'package:instagram/home/widgets/post_save_widget.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
+
 import 'package:like_button/like_button.dart';
 
 class HomepostWidget extends StatefulWidget {
-  // int index;
-  HomepostWidget({
-    // required this.index,
+  const HomepostWidget({
     super.key,
   });
 
@@ -27,7 +21,6 @@ class _HomepostWidgetState extends State<HomepostWidget> {
   late Future<List<HomeIntialApi>> getdata;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getdata = HomeIntagrationApi().gethomeitems();
   }
@@ -38,7 +31,7 @@ class _HomepostWidgetState extends State<HomepostWidget> {
         future: getdata,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData && snapshot.data != null) {
@@ -63,7 +56,7 @@ class _HomepostWidgetState extends State<HomepostWidget> {
                               radius: 25,
                             ),
                             title: Text(snapshot.data![index].name),
-                            trailing: Icon(Icons.more_horiz_rounded),
+                            trailing: const Icon(Icons.more_horiz_rounded),
                           ),
                           const SizedBox(
                             height: 5,
@@ -98,7 +91,7 @@ class _HomepostWidgetState extends State<HomepostWidget> {
                                   context: context,
                                   builder: (context) {
                                     return Container(
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                           color: Colors.grey,
                                           borderRadius: BorderRadius.only(
                                               topRight: Radius.circular(30),
@@ -107,7 +100,7 @@ class _HomepostWidgetState extends State<HomepostWidget> {
                                       child: ListView(
                                         children: [
                                           hight20,
-                                          CupertinoTextField(
+                                          const CupertinoTextField(
                                             cursorWidth: 1.0,
                                             suffix: Icon(Icons.people_outlined),
                                             prefix: Icon(Icons.search),
@@ -127,8 +120,8 @@ class _HomepostWidgetState extends State<HomepostWidget> {
                                                         ),
                                                         title: Text(snapshot
                                                             .data![index].name),
-                                                        trailing:
-                                                            Icon(Icons.send),
+                                                        trailing: const Icon(
+                                                            Icons.send),
                                                       )))
                                         ],
                                       ),
@@ -155,7 +148,7 @@ class _HomepostWidgetState extends State<HomepostWidget> {
                                   },
                                 );
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.bookmark_border_outlined,
                                 size: 30,
                               ),
@@ -169,7 +162,8 @@ class _HomepostWidgetState extends State<HomepostWidget> {
                               children: [
                                 Text(
                                   "${snapshot.data![index].liks.toString()} Liks",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(snapshot.data![index].tags),
                                 Text(
@@ -183,7 +177,7 @@ class _HomepostWidgetState extends State<HomepostWidget> {
           } else if (snapshot.hasError) {
             return Text(snapshot.error.toString());
           } else {
-            return Text('No Dta');
+            return const Text('No Dta');
           }
         });
   }

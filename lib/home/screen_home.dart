@@ -1,23 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instaclone/core/short._widget.dart';
 import 'package:instaclone/home/chat_page.dart';
 import 'package:instaclone/home/widgets/home_post_widget.dart';
 import 'package:instaclone/home/widgets/story_widget.dart';
-// import 'package:instagram/core/short._widget.dart';
-// import 'package:instagram/home/chat_page.dart';
-// import 'package:instagram/home/widgets/home_post_widget.dart';
-// import 'package:instagram/home/widgets/post_save_widget.dart';
-// import 'package:instagram/home/widgets/story_widget.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
-// import 'package:insta_like_button/insta_like_button.dart';
-// import 'package:like_button/like_button.dart';
 
 class ScreenHome extends StatelessWidget {
-  ScreenHome({super.key});
+  const ScreenHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +21,11 @@ class ScreenHome extends StatelessWidget {
               style: GoogleFonts.agdasima(color: Colors.black, fontSize: 30),
             ),
             actions: [
-              Icon(
+              const Icon(
                 Icons.favorite_border,
                 color: Colors.black,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               IconButton(
@@ -44,13 +33,13 @@ class ScreenHome extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChatPage(),
+                        builder: (context) => const ChatPage(),
                       ));
                 },
-                icon: Icon(Icons.message_outlined),
+                icon: const Icon(Icons.message_outlined),
                 color: Colors.black,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
             ],

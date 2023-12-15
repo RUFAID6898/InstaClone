@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:instaclone/core/short._widget.dart';
 import 'package:instaclone/home/followers_account_page.dart';
 import 'package:instaclone/home_api/repo_api.dart';
-// import 'package:instagram/core/short._widget.dart';
-// import 'package:instagram/home/followers_account_page.dart';
-// import 'package:instagram/home_api/repo_api.dart';
+
 import 'package:custom_clippers/custom_clippers.dart';
 
+// ignore: must_be_immutable
 class MessagingPage extends StatefulWidget {
   HomeIntialApi chatperson;
   MessagingPage({super.key, required this.chatperson});
@@ -18,7 +17,7 @@ class MessagingPage extends StatefulWidget {
 class _MessagingPageState extends State<MessagingPage> {
   List mesggaes = [];
 
-  TextEditingController _messagecontroller = TextEditingController();
+  final TextEditingController _messagecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +30,14 @@ class _MessagingPageState extends State<MessagingPage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back)),
+                  icon: const Icon(Icons.arrow_back)),
               CircleAvatar(
                 backgroundImage: NetworkImage(widget.chatperson.profil),
               ),
             ],
           ),
           title: Text(widget.chatperson.name),
-          actions: [
+          actions: const [
             Icon(Icons.call_outlined),
             width10,
             Icon(Icons.videocam_outlined),
@@ -63,9 +62,9 @@ class _MessagingPageState extends State<MessagingPage> {
                         child: ClipPath(
                           clipper: UpperNipMessageClipperTwo(MessageType.send),
                           child: Container(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 top: 10, bottom: 10, left: 10, right: 20),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Color.fromARGB(255, 204, 202, 202)),
                             child: Text(mesggaes[index]),
                           ),
@@ -88,8 +87,8 @@ class _MessagingPageState extends State<MessagingPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CircleAvatar(child: Icon(Icons.camera_alt_outlined)),
-                    Container(
+                    const CircleAvatar(child: Icon(Icons.camera_alt_outlined)),
+                    SizedBox(
                       width: 200,
                       child: TextField(
                           decoration: InputDecoration(
@@ -100,11 +99,11 @@ class _MessagingPageState extends State<MessagingPage> {
                                       _messagecontroller.clear();
                                     });
                                   },
-                                  icon: Icon(Icons.send)))),
+                                  icon: const Icon(Icons.send)))),
                     ),
-                    Icon(Icons.mic),
-                    Icon(Icons.emoji_emotions_outlined),
-                    Icon(Icons.image),
+                    const Icon(Icons.mic),
+                    const Icon(Icons.emoji_emotions_outlined),
+                    const Icon(Icons.image),
                   ],
                 ),
               ),
@@ -121,7 +120,7 @@ class _MessagingPageState extends State<MessagingPage> {
                   Text(widget.chatperson.name),
                   Text("${widget.chatperson.liks.toString()} Followers"),
                   ElevatedButton(
-                      style: ButtonStyle(
+                      style: const ButtonStyle(
                           backgroundColor:
                               MaterialStatePropertyAll(Colors.transparent)),
                       onPressed: () {
@@ -132,7 +131,7 @@ class _MessagingPageState extends State<MessagingPage> {
                                   followersdata: widget.chatperson),
                             ));
                       },
-                      child: Text(
+                      child: const Text(
                         'View Profile',
                         style: TextStyle(color: Colors.white),
                       ))

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ButtonWidget extends StatelessWidget {
   String Buttonname;
   ButtonWidget({
@@ -18,7 +19,7 @@ class ButtonWidget extends StatelessWidget {
             onPressed: () {},
             child: Text(
               Buttonname,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
             )));
   }
 }

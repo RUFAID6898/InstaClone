@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:instaclone/home/widgets/story_view_widget.dart';
 import 'package:instaclone/home_api/intagration_api.dart';
 import 'package:instaclone/home_api/repo_api.dart';
-// import 'package:instagram/home/widgets/story_view_widget.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
 
 class StoryWidget extends StatefulWidget {
-  // int index;
-  StoryWidget({
+  const StoryWidget({
     // required this.index,
     super.key,
   });
@@ -21,7 +17,6 @@ class _StoryWidgetState extends State<StoryWidget> {
   late Future<List<HomeIntialApi>> getstorydata;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getstorydata = HomeIntagrationApi().gethomeitems();
   }
@@ -32,7 +27,7 @@ class _StoryWidgetState extends State<StoryWidget> {
         future: getstorydata,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData && snapshot.data != null) {
@@ -65,12 +60,13 @@ class _StoryWidgetState extends State<StoryWidget> {
           } else if (snapshot.hasError) {
             return Text(snapshot.error.toString());
           } else {
-            return Text('No data');
+            return const Text('No data');
           }
         });
   }
 }
 
+// ignore: must_be_immutable
 class StoryAvathar extends StatelessWidget {
   bool onlie = false;
   String image;

@@ -4,14 +4,6 @@ import 'package:instaclone/core/short._widget.dart';
 import 'package:instaclone/home_api/intagration_api.dart';
 import 'package:instaclone/home_api/repo_api.dart';
 import 'package:instaclone/search/post_view_page.dart';
-// import 'package:instagram/account/widgets/button_widget.dart';
-// import 'package:instagram/core/short._widget.dart';
-// import 'package:instagram/home/screen_home.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
-// import 'package:instagram/reel/screen_reel.dart';
-// import 'package:instagram/search/post_view_page.dart';
-// import 'package:instagram/home/widgets/story_widget.dart';
 
 class ScreenAccount extends StatefulWidget {
   const ScreenAccount({super.key});
@@ -24,7 +16,6 @@ class _ScreenAccountState extends State<ScreenAccount> {
   late Future<List<HomeIntialApi>> getstorydata;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getstorydata = HomeIntagrationApi().gethomeitems();
   }
@@ -48,7 +39,7 @@ class _ScreenAccountState extends State<ScreenAccount> {
             future: getstorydata,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else if (snapshot.hasData && snapshot.data != null) {
@@ -57,14 +48,13 @@ class _ScreenAccountState extends State<ScreenAccount> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        // width10,
                         CircleAvatar(
                           backgroundImage:
                               NetworkImage(snapshot.data![10].profil),
                           radius: 50,
                         ),
                         // width10,
-                        Column(
+                        const Column(
                           children: [
                             Text(
                               '0',
@@ -73,29 +63,29 @@ class _ScreenAccountState extends State<ScreenAccount> {
                             Text('Post')
                           ],
                         ),
-                        // width10,
+
                         Column(
                           children: [
                             Text(
                               snapshot.data![1].liks.toString(),
-                              style: TextStyle(fontSize: 20),
+                              style: const TextStyle(fontSize: 20),
                             ),
-                            Text('Following')
+                            const Text('Following')
                           ],
                         ),
-                        // width10,
+
                         Column(
                           children: [
                             Text(
                               snapshot.data![1].comments.toString(),
-                              style: TextStyle(fontSize: 20),
+                              style: const TextStyle(fontSize: 20),
                             ),
-                            Text('Followers')
+                            const Text('Followers')
                           ],
                         )
                       ],
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 25, top: 5),
                       child: Text(
                         'Photographer',
@@ -115,7 +105,7 @@ class _ScreenAccountState extends State<ScreenAccount> {
                           decoration: BoxDecoration(
                               color: Colors.grey,
                               borderRadius: BorderRadius.circular(15)),
-                          child: Icon(Icons.person_add_alt),
+                          child: const Icon(Icons.person_add_alt),
                         ),
                       ],
                     ),
@@ -129,7 +119,7 @@ class _ScreenAccountState extends State<ScreenAccount> {
                                     image: snapshot.data![index].post,
                                   ))),
                     ),
-                    DefaultTabController(
+                    const DefaultTabController(
                       length: 2,
                       child: TabBar(tabs: [
                         Tab(
@@ -173,12 +163,13 @@ class _ScreenAccountState extends State<ScreenAccount> {
               } else if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
               } else {
-                return Text('No Data');
+                return const Text('No Data');
               }
             }));
   }
 }
 
+// ignore: must_be_immutable
 class AccountPostWidget extends StatelessWidget {
   String image;
   AccountPostWidget({
@@ -199,6 +190,7 @@ class AccountPostWidget extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class HighLightWidget extends StatelessWidget {
   String image;
   HighLightWidget({

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ScreenPost extends StatefulWidget {
-  ScreenPost({super.key});
+  const ScreenPost({super.key});
 
   @override
   State<ScreenPost> createState() => _ScreenPostState();
@@ -16,14 +16,14 @@ class _ScreenPostState extends State<ScreenPost> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.cancel_outlined),
-        title: Text('New Post'),
+        leading: const Icon(Icons.cancel_outlined),
+        title: const Text('New Post'),
         centerTitle: true,
-        actions: [
+        actions: const [
           Text(
             'Next',
-            style: TextStyle(
-                color: const Color.fromARGB(255, 3, 66, 119), fontSize: 20),
+            style:
+                TextStyle(color: Color.fromARGB(255, 3, 66, 119), fontSize: 20),
           )
         ],
       ),
@@ -36,7 +36,7 @@ class _ScreenPostState extends State<ScreenPost> {
               child: SizedBox(
                 child: saveimage != null
                     ? Image.file(saveimage!)
-                    : Center(child: Text('Selact image')),
+                    : const Center(child: Text('Selact image')),
               )),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -45,15 +45,15 @@ class _ScreenPostState extends State<ScreenPost> {
                   onPressed: () {
                     pickimage();
                   },
-                  child: Text('select photo')),
+                  child: const Text('select photo')),
               IconButton(
                   onPressed: () {
                     pickCamera();
                   },
-                  icon: Icon(Icons.camera_alt_outlined)),
+                  icon: const Icon(Icons.camera_alt_outlined)),
             ],
           ),
-          Expanded(
+          const Expanded(
               child: SingleChildScrollView(
             child: Column(
               children: [],

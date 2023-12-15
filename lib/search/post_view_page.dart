@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:instaclone/core/short._widget.dart';
 import 'package:instaclone/home/widgets/post_save_widget.dart';
 import 'package:instaclone/home_api/repo_api.dart';
-// import 'package:instagram/core/short._widget.dart';
-// import 'package:instagram/home/widgets/post_save_widget.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
+
 import 'package:like_button/like_button.dart';
 
+// ignore: must_be_immutable
 class SearchPost extends StatelessWidget {
   HomeIntialApi sendpost;
-  // int index;
+
   SearchPost({
     required this.sendpost,
     super.key,
@@ -33,7 +31,7 @@ class SearchPost extends StatelessWidget {
                           radius: 25,
                         ),
                         title: Text(sendpost.name),
-                        trailing: Icon(Icons.more_horiz_rounded),
+                        trailing: const Icon(Icons.more_horiz_rounded),
                       ),
                       const SizedBox(
                         height: 5,
@@ -67,7 +65,7 @@ class SearchPost extends StatelessWidget {
                               context: context,
                               builder: (context) {
                                 return Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       color: Colors.grey,
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(30),
@@ -76,7 +74,7 @@ class SearchPost extends StatelessWidget {
                                   child: ListView(
                                     children: [
                                       hight20,
-                                      CupertinoTextField(
+                                      const CupertinoTextField(
                                         cursorWidth: 1.0,
                                         suffix: Icon(Icons.people_outlined),
                                         prefix: Icon(Icons.search),
@@ -92,7 +90,8 @@ class SearchPost extends StatelessWidget {
                                                               sendpost.profil),
                                                     ),
                                                     title: Text(sendpost.name),
-                                                    trailing: Icon(Icons.send),
+                                                    trailing:
+                                                        const Icon(Icons.send),
                                                   )))
                                     ],
                                   ),
@@ -119,7 +118,7 @@ class SearchPost extends StatelessWidget {
                               },
                             );
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.bookmark_border_outlined,
                             size: 30,
                           ),
@@ -133,7 +132,8 @@ class SearchPost extends StatelessWidget {
                           children: [
                             Text(
                               "${sendpost.liks.toString()} Liks",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text(sendpost.tags),
                             Text("${sendpost.comments.toString()}  commets")

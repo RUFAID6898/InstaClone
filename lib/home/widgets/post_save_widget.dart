@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SavedWidget extends StatelessWidget {
   String image;
   SavedWidget({
@@ -11,7 +12,7 @@ class SavedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(30), topLeft: Radius.circular(30))),
@@ -32,18 +33,18 @@ class SavedWidget extends StatelessWidget {
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(20)),
                 ),
-                title: Text(
+                title: const Text(
                   "Saved",
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   "Private",
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.bookmark,
                   color: Colors.white,
                   size: 30,

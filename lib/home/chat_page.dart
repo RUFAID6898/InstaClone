@@ -4,12 +4,7 @@ import 'package:instaclone/home/widgets/masseging_page.dart';
 import 'package:instaclone/home/widgets/story_widget.dart';
 import 'package:instaclone/home_api/intagration_api.dart';
 import 'package:instaclone/home_api/repo_api.dart';
-import 'package:instaclone/search/search_account.dart';
 import 'package:instaclone/search/searchdata.dart';
-// import 'package:instagram/home/widgets/masseging_page.dart';
-// import 'package:instagram/home/widgets/story_widget.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -22,7 +17,6 @@ class _ChatPageState extends State<ChatPage> {
   late Future<List<HomeIntialApi>> getcontacts;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getcontacts = HomeIntagrationApi().gethomeitems();
   }
@@ -31,13 +25,13 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat'),
+        title: const Text('Chat'),
       ),
       body: FutureBuilder(
           future: getcontacts,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData && snapshot.data != null) {
@@ -46,7 +40,7 @@ class _ChatPageState extends State<ChatPage> {
                   onTap: () {
                     showSearch(context: context, delegate: SearchUsers());
                   },
-                  prefix: Icon(Icons.search),
+                  prefix: const Icon(Icons.search),
                   placeholder: 'Search',
                 ),
                 Padding(
@@ -68,7 +62,7 @@ class _ChatPageState extends State<ChatPage> {
                                   color:
                                       const Color.fromARGB(255, 183, 182, 182),
                                   borderRadius: BorderRadius.circular(15)),
-                              child: Row(
+                              child: const Row(
                                 children: [
                                   Icon(Icons.music_note),
                                   Text('music')
@@ -99,15 +93,15 @@ class _ChatPageState extends State<ChatPage> {
                               radius: 30,
                             ),
                             title: Text(snapshot.data![index].name),
-                            subtitle: Text('Send'),
-                            trailing: Icon(Icons.camera_alt_outlined),
+                            subtitle: const Text('Send'),
+                            trailing: const Icon(Icons.camera_alt_outlined),
                           )),
                 )
               ]);
             } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {
-              return Text('NO internet');
+              return const Text('NO internet');
             }
           }),
     );

@@ -5,9 +5,6 @@ import 'package:instaclone/home_api/intagration_api.dart';
 import 'package:instaclone/home_api/repo_api.dart';
 import 'package:instaclone/search/post_view_page.dart';
 import 'package:instaclone/search/searchdata.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
-// import 'package:instagram/search/post_view_page.dart';
 
 class ScreenSearch extends StatefulWidget {
   const ScreenSearch({super.key});
@@ -20,7 +17,6 @@ class _ScreenSearchState extends State<ScreenSearch> {
   late Future<List<HomeIntialApi>> getdata;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getdata = HomeIntagrationApi().gethomeitems();
   }
@@ -34,14 +30,14 @@ class _ScreenSearchState extends State<ScreenSearch> {
             showSearch(context: context, delegate: SearchUsers());
           },
           placeholder: 'Search',
-          prefix: Icon(Icons.search),
+          prefix: const Icon(Icons.search),
         ),
       ),
       body: FutureBuilder(
           future: getdata,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             } else if (snapshot.hasData && snapshot.data != null) {
               return ListView(
                   children: List.generate(
@@ -107,13 +103,14 @@ class _ScreenSearchState extends State<ScreenSearch> {
             } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {
-              return Text('No Data');
+              return const Text('No Data');
             }
           }),
     );
   }
 }
 
+// ignore: must_be_immutable
 class SmolpostCard extends StatelessWidget {
   String post;
   Function() onTap;
@@ -141,6 +138,7 @@ class SmolpostCard extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class BigPostCard extends StatelessWidget {
   String post;
 

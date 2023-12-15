@@ -1,8 +1,6 @@
 import 'dart:convert';
-// import 'dart:html';
 
 import 'package:instaclone/home_api/repo_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
 import 'package:http/http.dart' as http;
 
 class HomeIntagrationApi {

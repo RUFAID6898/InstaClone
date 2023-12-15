@@ -13,7 +13,7 @@ class SearchAccount extends StatefulWidget {
 
 class _SearchAccountState extends State<SearchAccount> {
   late Future<List<HomeIntialApi>> getsearchdatas;
-  HomeIntagrationApi _getusers = HomeIntagrationApi();
+  final HomeIntagrationApi _getusers = HomeIntagrationApi();
   // @override
   // void initState() {
   //   // TODO: implement initState
@@ -30,9 +30,9 @@ class _SearchAccountState extends State<SearchAccount> {
               onPressed: () {
                 showSearch(context: context, delegate: SearchUsers());
               },
-              icon: Icon(Icons.search))
+              icon: const Icon(Icons.search))
         ],
-        title: CupertinoTextField(
+        title: const CupertinoTextField(
           prefix: Icon(Icons.search),
           placeholder: 'Search',
         ),
@@ -41,7 +41,7 @@ class _SearchAccountState extends State<SearchAccount> {
           future: _getusers.gethomeitems(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData && snapshot.data != null) {
@@ -56,7 +56,7 @@ class _SearchAccountState extends State<SearchAccount> {
                             NetworkImage(snapshot.data![index].profil),
                       ),
                       title: Text(snapshot.data![index].name),
-                      trailing: Icon(Icons.cancel),
+                      trailing: const Icon(Icons.cancel),
                     ),
                   );
                 },
@@ -64,7 +64,7 @@ class _SearchAccountState extends State<SearchAccount> {
             } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {
-              return Text('NO data');
+              return const Text('NO data');
             }
           }),
     );

@@ -11,7 +11,7 @@ class SearchUsers extends SearchDelegate {
           onPressed: () {
             query = '';
           },
-          icon: Icon(Icons.close))
+          icon: const Icon(Icons.close))
     ];
   }
 
@@ -21,18 +21,18 @@ class SearchUsers extends SearchDelegate {
         onPressed: () {
           Navigator.pop(context);
         },
-        icon: Icon(Icons.arrow_back));
+        icon: const Icon(Icons.arrow_back));
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    HomeIntagrationApi _getusers = HomeIntagrationApi();
+    HomeIntagrationApi getusers = HomeIntagrationApi();
 
     return FutureBuilder<List<HomeIntialApi>>(
-        future: _getusers.gethomeitems(query: query),
+        future: getusers.gethomeitems(query: query),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData && snapshot.data != null) {
@@ -56,7 +56,7 @@ class SearchUsers extends SearchDelegate {
                           NetworkImage(snapshot.data![index].profil),
                     ),
                     title: Text(snapshot.data![index].name),
-                    trailing: Icon(Icons.cancel),
+                    trailing: const Icon(Icons.cancel),
                   ),
                 );
               },
@@ -64,13 +64,13 @@ class SearchUsers extends SearchDelegate {
           } else if (snapshot.hasError) {
             return Text(snapshot.error.toString());
           } else {
-            return Text('NO data');
+            return const Text('NO data');
           }
         });
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(child: Text('Search users'));
+    return const Center(child: Text('Search users'));
   }
 }

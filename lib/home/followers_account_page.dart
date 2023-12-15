@@ -4,12 +4,8 @@ import 'package:instaclone/account/widgets/button_widget.dart';
 import 'package:instaclone/core/short._widget.dart';
 import 'package:instaclone/home_api/repo_api.dart';
 import 'package:instaclone/search/post_view_page.dart';
-// import 'package:instagram/account/Screen_account.dart';
-// import 'package:instagram/account/widgets/button_widget.dart';
-// import 'package:instagram/core/short._widget.dart';
-// import 'package:instagram/home_api/repo_api.dart';
-// import 'package:instagram/search/post_view_page.dart';
 
+// ignore: must_be_immutable
 class FollowersAccountPage extends StatelessWidget {
   HomeIntialApi followersdata;
   FollowersAccountPage({super.key, required this.followersdata});
@@ -31,7 +27,7 @@ class FollowersAccountPage extends StatelessWidget {
                   radius: 50,
                 ),
                 // width10,
-                Column(
+                const Column(
                   children: [
                     Text(
                       '1',
@@ -45,9 +41,9 @@ class FollowersAccountPage extends StatelessWidget {
                   children: [
                     Text(
                       followersdata.comments.toString(),
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                     ),
-                    Text('Following')
+                    const Text('Following')
                   ],
                 ),
                 // width10,
@@ -55,14 +51,14 @@ class FollowersAccountPage extends StatelessWidget {
                   children: [
                     Text(
                       followersdata.liks.toString(),
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                     ),
-                    Text('Followers')
+                    const Text('Followers')
                   ],
                 )
               ],
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 25, top: 5),
               child: Text(
                 'Photographer',
@@ -81,7 +77,7 @@ class FollowersAccountPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(15)),
-                  child: Icon(Icons.person_add_alt),
+                  child: const Icon(Icons.person_add_alt),
                 ),
               ],
             ),
@@ -92,7 +88,7 @@ class FollowersAccountPage extends StatelessWidget {
                   children: List.generate(1,
                       (index) => HighLightWidget(image: followersdata.post))),
             ),
-            DefaultTabController(
+            const DefaultTabController(
               length: 2,
               child: TabBar(tabs: [
                 Tab(

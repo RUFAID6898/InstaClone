@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:instaclone/home/followers_account_page.dart';
 import 'package:instaclone/home_api/intagration_api.dart';
 import 'package:instaclone/home_api/repo_api.dart';
-// import 'package:instagram/home_api/intagration_api.dart';
-// import 'package:instagram/home_api/repo_api.dart';
+
 import 'package:like_button/like_button.dart';
-// import 'package:video_player/video_player.dart';
 
 class ScreenReels extends StatefulWidget {
   const ScreenReels({Key? key}) : super(key: key);
@@ -15,28 +13,14 @@ class ScreenReels extends StatefulWidget {
 }
 
 class _ScreenReelsState extends State<ScreenReels> {
-  // late VideoPlayerController _controller;
   late Future<List<HomeIntialApi>> getdata;
 
   @override
   void initState() {
     super.initState();
-    // _controller = VideoPlayerController.network(
-    //     'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');
 
-    // _controller.initialize().then((_) {
-    //   setState(() {});
-    // });
-
-    // _controller.setLooping(true);
     getdata = HomeIntagrationApi().gethomeitems();
   }
-
-  // @override
-  // void dispose() {
-  //   _controller.dispose();
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,18 +43,7 @@ class _ScreenReelsState extends State<ScreenReels> {
                               fit: BoxFit.cover),
                         ),
                       ),
-                      // Container(
-                      //   color: Colors.black,
-                      //   height: 300,
-                      //   width: 300,
-                      //   child: _controller.value.isInitialized
-                      //       ? AspectRatio(
-                      //           aspectRatio: _controller.value.aspectRatio,
-                      //           child: VideoPlayer(_controller),
-                      //         )
-                      //       : Container(),
-                      // ),
-                      Positioned(
+                      const Positioned(
                         top: 20,
                         left: 10,
                         child: Text(
@@ -84,35 +57,35 @@ class _ScreenReelsState extends State<ScreenReels> {
                         right: 20,
                         child: Column(
                           children: [
-                            LikeButton(
+                            const LikeButton(
                               size: 30,
                             ),
                             Text(
                               '${snapshot.data![index].liks} likes',
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
-                            SizedBox(height: 20),
-                            Icon(
+                            const SizedBox(height: 20),
+                            const Icon(
                               Icons.comment_outlined,
                               size: 30,
                               color: Colors.white,
                             ),
                             Text(
                               '${snapshot.data![index].comments} Comt',
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
-                            SizedBox(height: 20),
-                            Icon(
+                            const SizedBox(height: 20),
+                            const Icon(
                               Icons.send,
                               size: 30,
                               color: Colors.white,
                             ),
                             Text(
                               '${snapshot.data![index].liks}Share',
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
-                            SizedBox(height: 20),
-                            Icon(
+                            const SizedBox(height: 20),
+                            const Icon(
                               Icons.more_horiz_sharp,
                               size: 30,
                               color: Colors.white,
@@ -144,16 +117,16 @@ class _ScreenReelsState extends State<ScreenReels> {
                                         snapshot.data![index].profil),
                                     radius: 25,
                                   ),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Text(
                                     snapshot.data![index].name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18,
                                     ),
                                   ),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   OutlinedButton(
                                     style: ButtonStyle(
                                       backgroundColor:
@@ -161,7 +134,7 @@ class _ScreenReelsState extends State<ScreenReels> {
                                               Colors.transparent),
                                     ),
                                     onPressed: () {},
-                                    child: Text(
+                                    child: const Text(
                                       'Follow',
                                       style: TextStyle(color: Colors.white),
                                     ),
@@ -169,14 +142,14 @@ class _ScreenReelsState extends State<ScreenReels> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               snapshot.data![index].tags,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
                             Text(
                               "${snapshot.data![index].comments.toString()} others",
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -188,7 +161,7 @@ class _ScreenReelsState extends State<ScreenReels> {
             } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
